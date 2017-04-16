@@ -43,13 +43,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let taskselected = taskArray[indexPath.row]
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        performSegue(withIdentifier: "CompleteTaskSegue'", sender: taskselected)
-    }
-    
     
     func makeTasksfunc() -> [Taskclass] {
         let task1 = Taskclass()
@@ -75,10 +68,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == "addTaskSegue" {
             let nextVC = segue.destination as! AddTaskViewController
             nextVC.previousVC = self
-        }
-        if segue.identifier == "CompleteTaskSegue" {
-            let nextVC = segue.destination as! CompleteTaskViewController
-            nextVC.task = sender as! Taskclass
         }
         
     }
