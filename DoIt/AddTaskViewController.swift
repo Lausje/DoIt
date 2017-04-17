@@ -12,8 +12,6 @@ class AddTaskViewController: UIViewController {
 
     @IBOutlet weak var taskNaamVeld: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
-
-    var previousVC = TaskViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +20,15 @@ class AddTaskViewController: UIViewController {
    
     @IBAction func addTapped(_ sender: Any) {
         // create a task met de info van het tekstveld en important switch
-        let task = Taskclass()
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let task = Taskclass(context: context)
         task.name = taskNaamVeld.text!
         task.important = importantSwitch.isOn
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
-        // maak nieuwe taak en voeg deze toe in de array
-        previousVC.taskArray.append(task)
-        previousVC.taskTableView.reloadData()
+        // pop back
         navigationController!.popViewController(animated: true)
     }
 
