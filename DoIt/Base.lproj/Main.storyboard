@@ -142,7 +142,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Gedaan!"/>
                                 <connections>
-                                    <action selector="CompleteTapped:" destination="dk6-3n-Ok6" eventType="touchUpInside" id="IW4-Ie-PKB"/>
+                                    <action selector="completeTapped:" destination="dk6-3n-Ok6" eventType="touchUpInside" id="eUG-YC-AZZ"/>
                                 </connections>
                             </button>
                         </subviews>

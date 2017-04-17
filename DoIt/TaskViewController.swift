@@ -16,6 +16,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     var taskArray : [Taskclass] = []
     // definieer een variable, die een array is van alle bestaande tasks
     
+    var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,6 +43,13 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.textLabel?.text = taskindex.name
         }
         return cell
+
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        let task = taskArray[indexPath.row]
+        performSegue(withIdentifier: "CompleteTaskSegue", sender: task)
     }
     
     func makeTasksfunc() -> [Taskclass] {
@@ -69,7 +77,11 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             let nextVC = segue.destination as! AddTaskViewController
             nextVC.previousVC = self
         }
-        
+        if segue.identifier == "CompleteTaskSegue" {
+            let nextVC = segue.destination as! CompleteTaskViewController
+            nextVC.task = sender as! Taskclass
+            nextVC.previousVC = self
+        }
     }
     
 }
