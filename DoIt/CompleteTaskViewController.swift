@@ -9,7 +9,7 @@
 import UIKit
 
 class CompleteTaskViewController: UIViewController {
-    
+let gradientLayer = CAGradientLayer()
 /* gedeelte waar je variabelen en knoppen definieert
 */
     
@@ -21,6 +21,7 @@ class CompleteTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         if task!.important {
             TaskNameLabel.text = "‼️\(task!.name!)"
         } else {

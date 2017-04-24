@@ -19,6 +19,7 @@ class AddTaskViewController: UIViewController {
 */
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
     }
 /* definieer wat er gebeurt als je op de "voeg toe" knop drukt. hij voegt een task toe met de eigenschappen naam en important, en die voegt hij toe aan de context, die je gedefinieert had als database. dat slaat hij op, daarna gaat hij terug naar het eerste scherm
 */
